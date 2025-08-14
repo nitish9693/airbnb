@@ -13,7 +13,12 @@ const reviews = require("./routes/review.js");
 const { reviewSchema } = require("./schema.js");
 
 
-const MONGO_URL ="mongodb://127.0.0.1:27017/wanderlust";
+// const MONGO_URL ="mongodb://127.0.0.1:27017/wanderlust";
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
 
 main().then(() => {
     console.log("connected to DB");
